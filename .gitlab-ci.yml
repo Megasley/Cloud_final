@@ -1,0 +1,16 @@
+stages:
+  - terraform
+  - deploy
+
+terraform:
+  stage: terraform
+  image: hashicorp/terraform:latest
+  script:
+    - terraform init
+    - terraform apply -auto-approve
+
+deploy:
+  stage: deploy
+  image: ansible/ansible-runner
+  script:
+    - ansible-playbook -i inventory deploy.yml --ask-vault-pass

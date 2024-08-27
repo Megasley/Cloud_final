@@ -6,10 +6,10 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: email@email.com
+    email: mgt@megasley.com  
     privateKeySecretRef:
       name: letsencrypt-sock
-    solvers: 
+    solvers:
     - http01:
         ingress:
           class: nginx
